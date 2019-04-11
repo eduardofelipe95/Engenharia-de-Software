@@ -10,5 +10,4 @@ public class ProjectDT {
 	public HashMap<Integer, StyleDT> styles;
 	public EventDT creation;
 	public List<EventDT> update;
-	public EventDT updated;
 }
