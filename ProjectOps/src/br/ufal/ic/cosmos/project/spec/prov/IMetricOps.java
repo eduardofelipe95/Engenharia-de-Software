@@ -5,6 +5,6 @@ import java.util.List;
 import br.ufal.ic.cosmos.project.spec.dt.MetricDT;
 
 public interface IMetricOps {
-	public List<MetricDT> calculateProjectMetrics(int projectId);
-
+	public int updateProjectMetrics(int projectId); // Retorna código de erro ou zero se OK
+	public List<MetricDT> getProjectMetrics(int projectId);
 }
