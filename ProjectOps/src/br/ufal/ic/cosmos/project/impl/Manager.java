@@ -10,15 +10,15 @@ public class Manager implements IManager{
 	private HashMap<String, Object> requiredInterfaces;
 
 	Manager(){
-		this.providedInterfaces = new HashMap<>();
-		this.requiredInterfaces = new HashMap<>();
-		//add provided interfaces
+		this.providedInterfaces = new HashMap<String, Object>();
+		this.requiredInterfaces = new HashMap<String, Object>();
+
 		this.providedInterfaces.put("ICRUDProjectOps", new FacadeCRUDProjectOps(this));
 		this.providedInterfaces.put("IMetricOps", new FacadeMetricsOps(this));
 		this.providedInterfaces.put("ISearchProjectOps", new FacadeSearchProjectOps(this));
 		
-		//add required interfaces
-		this.requiredInterfaces.put("ILimiteReq", null);
+		this.requiredInterfaces.put("IProjectBusinessReq", null);
+		this.requiredInterfaces.put("IProjectSystemReq", null);
 	}
 
 	@Override

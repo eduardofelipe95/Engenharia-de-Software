@@ -3,7 +3,6 @@ package br.ufal.ic.cosmos.project.spec.prov;
 import java.util.Set;
 
 public interface IManager {
-	
 	public Set<String> getProvidedInterfaces();
 	public Set<String> getRequiredInterfaces();
 	public Object getProvidedInterface(String interfaceName);
