@@ -11,6 +11,7 @@ public class FacadeMetricsOps implements IMetricOps{
 	private IManager manager;
 	private ICRUDProjectOps projectOps;
 	
+	
 	public FacadeMetricsOps(IManager manager) {
 		this.manager = manager;
 		this.projectOps = (ICRUDProjectOps) this.manager.getProvidedInterface("ICRUDProjectOps");
@@ -19,15 +20,22 @@ public class FacadeMetricsOps implements IMetricOps{
 	@Override
 	public int updateProjectMetrics(int projectId) {
 		/**
-		 * Calcula e atualiza as métricas do projeto. Retorna 0 se OK. Retorna o código do erro, caso contrário.
+		 * Calcula e atualiza as mï¿½tricas do projeto. Retorna 0 se OK. Retorna o cï¿½digo do erro, caso contrï¿½rio.
 		 */
-		return 0;
+		
+		
+		if(this.projectOps.changeProject(projectId, this.projectOps.getProject(projectId))) {
+			return 0;
+		}
+		else {
+			return 2345678;
+		}
 	}
 
 	@Override	
 	public List<MetricDT> getProjectMetrics(int projectId) {
 		/**
-		 * As métricas são calculadas no momento de criação / atualização do projeto. 
+		 * As mÃ©tricas sÃ£o calculadas no momento de criaÃ§Ã£o / atualizaÃ§Ã£o do projeto. 
 		 */
 		List<MetricDT> metrics = (List<MetricDT>) (this.projectOps.getProject(projectId).metrics.values());
 		return metrics;
